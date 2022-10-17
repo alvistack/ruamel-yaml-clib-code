@@ -1,0 +1,23 @@
+#!/usr/bin/make -f
+
+SHELL := /bin/bash
+
+override_dh_auto_build:
+	mkdir ruamel.yaml.clib
+	mv *.pyx ruamel.yaml.clib
+	cythonize -3 ruamel.yaml.clib/*.pyx
+	mv ruamel.yaml.clib/* .
+	rmdir ruamel.yaml.clib
+	python3 setup.py build
+
+override_dh_auto_install:
+	python3 setup.py install --single-version-externally-managed --skip-build --root=debian/python3-ruamel.yaml.clib --prefix=/usr --install-layout=deb
+	find debian/python3-ruamel.yaml.clib/usr/lib/python*/*-packages -type f -name '*.pyc' -exec rm -rf {} \;
+	fdupes -qnrps debian/python3-ruamel.yaml.clib/usr/lib/python*/*-packages
+
+override_dh_auto_test:
+
+override_dh_auto_clean:
+
+%:
+	dh $@ --buildsystem=pybuild --with python3
