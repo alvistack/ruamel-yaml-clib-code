@@ -50,10 +50,6 @@ if sys.version_info < (3, 4):
         pass
 
 
-if sys.version_info >= (3, 8):
-    from ast import Str, Num, Bytes, NameConstant  # NOQA
-
-
 if sys.version_info < (3,):
     open_kw = dict()
 else:
@@ -80,6 +76,9 @@ else:
             kw1['file'] = fp
             print('{:%Y-%d-%mT%H:%M:%S}'.format(datetime.datetime.now()), file=fp, end=' ')
             print(*args, **kw1)
+
+if sys.version_info >= (3, 8):
+    from ast import Str, Num, Bytes, NameConstant  # NOQA
 
 
 def literal_eval(node_or_string):
@@ -528,7 +527,7 @@ class NameSpacePackager(object):
         if package_name is None:
             package_name = self.full_package_name
         if not script_name:
-            script_name = package_name.split('.')[-1]
+            script_name = package_name.rsplit('.', 1)[-1]
         return {
             'console_scripts': [
                 '{0} = {1}'.format(script_name, pckg_entry_point(package_name))
