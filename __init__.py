@@ -7,8 +7,9 @@ if False:  # MYPY
 
 _package_data = dict(
     full_package_name='ruamel.yaml.clib',
-    version_info=(0, 2, 6),
-    __version__='0.2.6',
+    version_info=(0, 2, 8),
+    __version__='0.2.8',
+    version_timestamp='2023-10-03 09:43:38',
     author='Anthon van der Neut',
     author_email='a.van.der.neut@ruamel.eu',
     description='C version of reader, parser and emitter for ruamel.yaml derived from libyaml',
@@ -44,11 +45,12 @@ _package_data = dict(
     # NOQA
     # test='#include "ext/yaml.h"\n\nint main(int argc, char* argv[])\n{\nyaml_parser_t parser;\nparser = parser;  /* prevent warning */\nreturn 0;\n}\n',  # NOQA
     classifiers=[
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
         'Programming Language :: Python :: Implementation :: CPython',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
@@ -59,10 +61,10 @@ _package_data = dict(
         macos='builder@macos',
     ),
     # read_the_docs='yaml',
-    supported=[(3, 5)],  # minimum
-    python_requires='>=3.5',
+    supported=[(3, 6)],  # minimum
+    python_requires='>=3.6',
     tox=dict(
-        env='*f',
+        env='*g',
     ),
     manifest='include README.rst LICENSE setup.py *.c *.h',
     # rtfd='yaml',
