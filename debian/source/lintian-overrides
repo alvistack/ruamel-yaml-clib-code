@@ -1,0 +1,5 @@
+python-ruamel-yaml-clib source: file-without-copyright-information
+python-ruamel-yaml-clib source: no-debian-changes
+python-ruamel-yaml-clib source: source-contains-prebuilt-windows-binary
+python-ruamel-yaml-clib source: source-is-missing
+python-ruamel-yaml-clib source: source-package-encodes-python-version

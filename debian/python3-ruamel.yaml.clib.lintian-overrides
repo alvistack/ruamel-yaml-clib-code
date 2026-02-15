@@ -1,0 +1,6 @@
+python3-ruamel.yaml.clib: copyright-without-copyright-notice
+python3-ruamel.yaml.clib: embedded-library
+python3-ruamel.yaml.clib: file-name-contains-wildcard-character
+python3-ruamel.yaml.clib: initial-upload-closes-no-bugs
+python3-ruamel.yaml.clib: no-manual-page
+python3-ruamel.yaml.clib: zero-byte-file-in-doc-directory
